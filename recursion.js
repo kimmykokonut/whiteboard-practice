@@ -13,3 +13,23 @@ const yodaTalk = (sentence) => {
   return revArray(sentArray).trim();
 }
 console.log(yodaTalk(sentence));
+//Problem #2
+//Write a recursive function that concatenates "red green refactor" to a string X number of times, where X is the argument passed into the function
+const rgr = (x) => {
+  const str = "red green refactor";
+  if (x === 0) {
+    return '';
+  }
+  return rgr(x -= 1) + str + ' ';
+}
+console.log(rgr(3));
+//refactored to include termination conditional with base case
+const rgr2 = (x) => { 
+  const str = "red green refactor";
+  if (isNaN(x) || x <= 0) {
+    return '';
+  }
+  return rgr(x - 1) + str + ' ';
+}
+console.log(rgr2('hi'));
+console.log(rgr2(0));
